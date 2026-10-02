@@ -1,146 +1,20 @@
 <!DOCTYPE html>
-<html lang="ur">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Proposal Registration - Bandhan Shadi Office</title>
-    <link rel="stylesheet" href="style.css">
-    <style>
-        .form-container {
-            max-width: 700px;
-            margin: 30px auto;
-            background: #fff;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            border: 2px solid #800020;
-        }
-        .form-header {
-            text-align: center;
-            border-bottom: 2px dashed #D4AF37;
-            padding-bottom: 15px;
-            margin-bottom: 20px;
-        }
-        .form-header h2 { color: #800020; margin: 0; }
-        .form-header p { color: #666; font-size: 14px; margin-top: 5px; }
-        .form-group { margin-bottom: 15px; }
-        .form-group label { display: block; font-weight: bold; margin-bottom: 5px; color: #333; }
-        .form-group input, .form-group select, .form-group textarea {
-            width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box;
-        }
-        .form-row { display: flex; gap: 15px; }
-        .form-row .form-group { flex: 1; }
-        .submit-btn {
-            background: #25D366; color: white; border: none; padding: 14px; font-size: 16px;
-            font-weight: bold; width: 100%; border-radius: 6px; cursor: pointer; display: flex;
-            align-items: center; justify-content: center; gap: 10px;
-        }
-        .submit-btn:hover { background: #128C7E; }
-        #imgPreview { max-width: 120px; margin-top: 10px; border-radius: 6px; display: none; border: 1px solid #ddd; }
-    </style>
-</head>
-<body>
-
-    <div class="form-container">
-        <div class="form-header">
-            <h2>بندھن شادی دفتر - رشتہ رجسٹریشن فارم</h2>
-            <p>Bandhan Shadi Office - Azeem Road, Kala Gujran, Jhelum (0333-5822363)</p>
-        </div>
-
-        <form id="rishtaForm">
-            <!-- Personal Info -->
-            <h3 style="color:#800020; border-bottom:1px solid #ddd; padding-bottom:5px;">1. بنیادی معلومات (Personal Details)</h3>
-            
-            <div class="form-row">
-                <div class="form-group">
-                    <label>پورا نام (Full Name) *</label>
-                    <input type="text" id="fullName" required placeholder="مثلاً: Muhammad Ali">
-                </div>
-                <div class="form-group">
-                    <label>جنس (Gender) *</label>
-                    <select id="gender" required>
-                        <option value="Male (لڑکا)">لڑکا (Male)</option>
-                        <option value="Female (لڑکی)">لڑکی (Female)</option>
-                    </select>
-                </div>
-            </div>
-
-            <div class="form-row">
-                <div class="form-group">
-                    <label>عمر (Age) *</label>
-                    <input type="number" id="age" required placeholder="مثلاً: 26">
-                </div>
-                <div class="form-group">
-                    <label>قد (Height) *</label>
-                    <input type="text" id="height" required placeholder="مثلاً: 5 Feet 8 Inches">
-                </div>
-            </div>
-
-            <div class="form-row">
-                <div class="form-group">
-                    <label>ازدواجی حیثیت (Marital Status) *</label>
-                    <select id="maritalStatus">
-                        <option value="Single (غیر شادی شدہ)">Single (غیر شادی شدہ)</option>
-                        <option value="Divorced (طلاق شدہ)">Divorced (طلاق شدہ)</option>
-                        <option value="Widowed (بیوہ / رنڈوا)">Widowed (بیوہ / رنڈوا)</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label>ذات / قوم (Caste / Family) *</label>
-                    <input type="text" id="caste" required placeholder="مثلاً: Rajput, Jatt, Syed etc.">
-                </div>
-            </div>
-
-            <!-- Education & Job -->
-            <h3 style="color:#800020; border-bottom:1px solid #ddd; padding-bottom:5px; margin-top:20px;">2. تعلیم و پیشہ (Education & Profession)</h3>
-
-            <div class="form-row">
-                <div class="form-group">
-                    <label>تعلیم (Qualification) *</label>
-                    <input type="text" id="education" required placeholder="مثلاً: BS Computer Science / Metric">
-                </div>
-                <div class="form-group">
-                    <label>پیشہ / ملازمت (Job / Business) *</label>
-                    <input type="text" id="job" required placeholder="مثلاً: Government Job / Own Business">
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label>شہر / پتہ (City / Address) *</label>
-                <input type="text" id="city" required placeholder="مثلاً: Jhelum / Rawalpindi">
-            </div>
-
-            <!-- Picture Upload -->
-            <h3 style="color:#800020; border-bottom:1px solid #ddd; padding-bottom:5px; margin-top:20px;">3. تصویر اپ لوڈ کریں (Candidate Photo)</h3>
-            <div class="form-group">
-                <label>تصویر منتخب کریں (Select Applicant Picture):</label>
-                <input type="file" id="applicantPhoto" accept="image/*" onchange="previewImage(event)">
-                <img id="imgPreview" alt="Candidate Preview">
-            </div>
-
-            <!-- Requirement -->
-            <h3 style="color:#800020; border-bottom:1px solid #ddd; padding-bottom:5px; margin-top:20px;">4. کیسا رشتہ درکار ہے؟ (Requirements)</h3>
-            <div class="form-group">
-                <textarea id="requirements" rows="3" placeholder="مطلوبہ رشتے کی تفصیلات لکھیں (عمر، تعلیم، ذات وغیرہ)..."></textarea>
-            </div>
-
-            <button type="submit" class="submit-btn">
-                📲 واٹس ایپ پر فارم جمع کروائیں (Send via WhatsApp)
-            </button>
-        </form>
-    </div>
-
-    <script src="script.js"></script>
-    <script>
-        function previewImage(event) {
-            var reader = new FileReader();
-            reader.onload = function(){
-                var output = document.getElementById('imgPreview');
-                output.src = reader.result;
-                output.style.display = 'block';
-            };
-            reader.readAsDataURL(event.target.files[0]);
-        }
-    </script>
-</body>
-</html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Register | Bandhan Shadi Office بندھن شادی دفتر</title><meta name="description" content="Register your rishta proposal with Bandhan Shadi Office, Jhelum.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;700&family=Playfair+Display:wght@600;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css"></head><body>
+<header><div class="w nav"><a class="logo" href="index.html">Bandhan Shadi Office<small class="ur">بندھن شادی دفتر</small></a>
+<button id="mb" aria-label="Menu">&#9776;</button><nav><a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a><a href="register.html" class=on>Register</a><a href="contact.html">Contact</a></nav></div></header>
+<section><div class="w"><div class="c"><h2>Rishta Registration</h2><h3 class="ur">رشتہ رجسٹریشن</h3><p class="sub">Fill the form and it opens in WhatsApp, ready to send to our office.</p></div>
+<form data-wa-form="New Rishta Registration"><div class="fg"><label>Rishta For<select><option value="">Any</option><option>Boy (Groom)</option><option>Girl (Bride)</option></select></label><label>Full Name<input type="text" placeholder=""></label><label>Age<input type="number" placeholder=""></label><label>Height<input type="text" placeholder="e.g. 5'6"></label><label>Marital Status<select><option value="">Any</option><option>Never Married</option><option>Divorced</option><option>Widowed</option></select></label><label>Education<input type="text" placeholder=""></label><label>Profession / Job<input type="text" placeholder=""></label><label>Monthly Income (optional)<input type="text" placeholder=""></label><label>Caste / Family<input type="text" placeholder=""></label><label>Sect<select><option value="">Any</option><option>Sunni</option><option>Shia</option><option>Other</option></select></label><label>City / Address<input type="text" placeholder=""></label><label>Phone / WhatsApp<input type="tel" placeholder=""></label></div>
+<div class="fg"><label>Family Details<textarea rows="3" placeholder="Father's occupation, siblings, house..."></textarea></label><label>Expectations / Requirements<textarea rows="3"></textarea></label></div>
+<button class="btn wa">Send via WhatsApp</button></form></div></section>
+<footer><div class="w"><div class="grid"><div><h3>Bandhan Shadi Office <span class="ur">بندھن شادی دفتر</span></h3><p>Trusted, confidential & respectful rishta services.</p></div>
+<div><h3>Visit Us</h3><p>Azeem Road, Kala Gujran, Jhelum, Pakistan<br><a href="https://www.google.com/maps/dir/?api=1&destination=Azeem+Road+Kala+Gujran+Jhelum+Pakistan" target="_blank" rel="noopener">Get Directions &rarr;</a></p></div>
+<div><h3>Contact</h3><p><a href="tel:03335822363">&#9742; 0333-5822363</a><br><a data-wa href="#">WhatsApp Chat</a></p></div></div>
+<p class="cp">&copy; 2026 Bandhan Shadi Office. All rights reserved.</p></div></footer>
+<a class="fab" data-wa href="#" aria-label="WhatsApp">&#128172;</a>
+<script src="script.js"></script>
+<!-- CHATBOT SCRIPT PLACEHOLDER -->
+</body></html>
